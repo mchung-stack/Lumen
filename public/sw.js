@@ -7,7 +7,7 @@ const BASE = new URL('.', self.location.href).pathname;
 const PRECACHE_URLS = [
   BASE,
   BASE + 'index.html',
-  BASE + 'manifest.json',
+  BASE + 'manifest.webmanifest',
 ];
 
 // Install: precache core assets
