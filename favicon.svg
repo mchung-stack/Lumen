@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- 白色圆角方形底色 -->
+  <rect x="0" y="0" width="512" height="512" rx="96" fill="#FFFFFF"/>
+
+  <!-- 冰山主体 - 水面以上部分 -->
+  <polygon points="256,80 100,380 160,380 180,320 220,360 240,300 256,340 272,280 300,340 320,300 350,370 380,350 412,380"
+    fill="#B8D4F0" stroke="#7EB8E0" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- 冰山水面以下部分 - 稍深 -->
+  <polygon points="160,380 100,380 120,460 180,420 200,460 240,400 256,440 280,400 320,450 340,420 380,460 400,440 412,380 350,370 380,350"
+    fill="#A8C8E8" stroke="#7EB8E0" stroke-width="3" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- 冰山高光面 -->
+  <polygon points="256,80 220,360 240,300 256,340 272,280 300,340 320,300 350,370"
+    fill="#D6EAF8" stroke="none" opacity="0.6"/>
+
+  <!-- 冰山顶部的雪白 -->
+  <polygon points="256,80 235,150 245,140 256,120 267,145 277,150"
+    fill="#FFFFFF" stroke="none"/>
+
+  <!-- 冰裂缝细节 -->
+  <line x1="240" y1="300" x2="230" y2="340" stroke="#93C5E8" stroke-width="2" opacity="0.6"/>
+  <line x1="280" y1="270" x2="270" y2="330" stroke="#93C5E8" stroke-width="2" opacity="0.6"/>
+  <line x1="320" y1="300" x2="330" y2="350" stroke="#93C5E8" stroke-width="2" opacity="0.6"/>
+
+  <!-- 水面波纹 -->
+  <ellipse cx="256" cy="385" rx="140" ry="8" fill="none" stroke="#B8D4F0" stroke-width="2" opacity="0.4"/>
+  <ellipse cx="256" cy="395" rx="120" ry="6" fill="none" stroke="#D6EAF8" stroke-width="1.5" opacity="0.3"/>
+</svg>
