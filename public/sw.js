@@ -1,10 +1,13 @@
 // Service Worker for 大人生活指南 PWA
 const CACHE_NAME = 'adulthood-v1';
 
+// Base path relative to this service worker's location
+const BASE = new URL('.', self.location.href).pathname;
+
 const PRECACHE_URLS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  BASE,
+  BASE + 'index.html',
+  BASE + 'manifest.json',
 ];
 
 // Install: precache core assets
