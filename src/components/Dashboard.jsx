@@ -85,10 +85,11 @@ const Dashboard = ({ onNavigate }) => {
         { key: 'icon', label: '圖示 Emoji', placeholder: '例：💧' },
         { key: 'target', label: '每日目標 (數字)', type: 'number', placeholder: '例：2000' },
         { key: 'unit', label: '單位', placeholder: '例：ml' },
+        { key: 'step', label: '每次增減量', type: 'number', placeholder: '例：100' },
         { key: 'current', label: '今日進度', type: 'number', placeholder: '例：1400' },
       ],
       {},
-      (data) => addHabit({ ...data, target: Number(data.target) || 0, current: Number(data.current) || 0 }),
+      (data) => addHabit({ ...data, target: Number(data.target) || 0, current: Number(data.current) || 0, step: Number(data.step) || 1 }),
       true
     );
   };
@@ -101,10 +102,11 @@ const Dashboard = ({ onNavigate }) => {
         { key: 'icon', label: '圖示 Emoji' },
         { key: 'target', label: '每日目標 (數字)', type: 'number' },
         { key: 'unit', label: '單位' },
+        { key: 'step', label: '每次增減量', type: 'number' },
         { key: 'current', label: '今日進度', type: 'number' },
       ],
       h,
-      (data) => updateHabit(h.id, { ...data, target: Number(data.target) || 0, current: Number(data.current) || 0 })
+      (data) => updateHabit(h.id, { ...data, target: Number(data.target) || 0, current: Number(data.current) || 0, step: Number(data.step) || 1 })
     );
   };
 
@@ -207,9 +209,9 @@ const Dashboard = ({ onNavigate }) => {
                 <div className="habit-name">{habit.name}</div>
                 {!editMode && (
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginBottom: '8px' }}>
-                    <button className="btn-habit-adjust" onClick={() => handleHabitProgress(habit, -1)}>−</button>
+                    <button className="btn-habit-adjust" onClick={() => handleHabitProgress(habit, -(habit.step || 1))}>−</button>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', minWidth: '30px', textAlign: 'center' }}>{habit.current}</span>
-                    <button className="btn-habit-adjust" onClick={() => handleHabitProgress(habit, 1)}>＋</button>
+                    <button className="btn-habit-adjust" onClick={() => handleHabitProgress(habit, habit.step || 1)}>＋</button>
                   </div>
                 )}
                 <div className="habit-progress-bar">

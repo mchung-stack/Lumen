@@ -30,7 +30,7 @@ function loadFromLS(key, fallback) {
     const raw = localStorage.getItem(key);
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) return parsed;
+      return parsed; // support both arrays and objects
     }
   } catch (_) {}
   return fallback;
@@ -60,11 +60,11 @@ const getDefaultReminders = () => {
 };
 
 const getDefaultHabits = () => [
-  { id: 1, name: '喝水 2000ml', icon: '💧', progress: 70, target: 2000, unit: 'ml', current: 1400 },
-  { id: 2, name: '閱讀 30 分鐘', icon: '📖', progress: 100, target: 30, unit: 'min', current: 30 },
-  { id: 3, name: '早睡 (23:00前)', icon: '🌙', progress: 0, target: 1, unit: '', current: 0 },
-  { id: 4, name: '運動 20 分鐘', icon: '🏃', progress: 50, target: 20, unit: 'min', current: 10 },
-  { id: 5, name: '冥想 10 分鐘', icon: '🧘', progress: 100, target: 10, unit: 'min', current: 10 },
+  { id: 1, name: '喝水 2000ml', icon: '💧', progress: 70, target: 2000, unit: 'ml', current: 1400, step: 100 },
+  { id: 2, name: '閱讀 30 分鐘', icon: '📖', progress: 100, target: 30, unit: 'min', current: 30, step: 5 },
+  { id: 3, name: '早睡 (23:00前)', icon: '🌙', progress: 0, target: 1, unit: '', current: 0, step: 1 },
+  { id: 4, name: '運動 20 分鐘', icon: '🏃', progress: 50, target: 20, unit: 'min', current: 10, step: 5 },
+  { id: 5, name: '冥想 10 分鐘', icon: '🧘', progress: 100, target: 10, unit: 'min', current: 10, step: 5 },
 ];
 
 const getDefaultQuickStats = () => [
